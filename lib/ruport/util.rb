@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/version')
+require File.expand_path(File.dirname(__FILE__) + '/util/version')
 
 module Ruport
   module Util
@@ -10,16 +10,16 @@ module Ruport
   end
 end
 
-require "ruport/util/report"
-require "ruport/util/graph"
-require "ruport/util/invoice"
-require "ruport/util/report_manager"
-require "ruport/util/mailer"
-require "ruport/util/bench"
-require "ruport/util/generator"
-require "ruport/util/pdf/form"
-require "ruport/util/ods" 
-require "ruport/util/query"
-require "ruport/util/xls"
-require "ruport/util/ods_table"
-require "ruport/util/xls_table"
+require File.expand_path(File.dirname(__FILE__) + "/util/report")
+require File.expand_path(File.dirname(__FILE__) + "/util/graph")
+require File.expand_path(File.dirname(__FILE__) + "/util/invoice")
+require File.expand_path(File.dirname(__FILE__) + "/util/report_manager")
+require File.expand_path(File.dirname(__FILE__) + "/util/mailer")
+require File.expand_path(File.dirname(__FILE__) + "/util/bench")
+require File.expand_path(File.dirname(__FILE__) + "/util/generator")
+require File.expand_path(File.dirname(__FILE__) + "/util/pdf/form")
+require File.expand_path(File.dirname(__FILE__) + "/util/ods")
+require File.expand_path(File.dirname(__FILE__) + "/util/query")
+require File.expand_path(File.dirname(__FILE__) + "/util/xls")
+require File.expand_path(File.dirname(__FILE__) + "/util/ods_table")
+require File.expand_path(File.dirname(__FILE__) + "/util/xls_table")

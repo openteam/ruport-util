@@ -8,10 +8,10 @@ gem 'gruff', '~> 0.3.6'
 gem 'scruffy', '~> 0.2.6'
 
 # These get required at some point... guessing they're deps.
-#gem 'roo'
-#gem 'spreadsheet'
-#gem 'dbi'
-#gem 'hpricot'
+gem 'roo'
+gem 'spreadsheet'
+gem 'dbi'
+gem 'hpricot'
 # open_flash_chart
 
 group :development do
