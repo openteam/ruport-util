@@ -288,7 +288,7 @@ module Ruport
 
       @tempfile = Tempfile.new('output.xls')
       @tempfile.print(output)
-      @tempfile.close();
+      @tempfile.close
       options.io =
         if options.tempfile
           @tempfile

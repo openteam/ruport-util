@@ -6,7 +6,7 @@
 #  See LICENSE for details
 require "net/smtp"
 require "forwardable"
-require "ruport/util/report"
+require File.expand_path(File.dirname(__FILE__) + "/report")
 
 module Ruport
   

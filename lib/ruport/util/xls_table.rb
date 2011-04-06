@@ -93,11 +93,11 @@ class Ruport::Data::Table
         
         unless oo.last_row.nil?
           start_row.upto(oo.last_row) do |row|
-            tempArr = []
+            temp_arr = []
             1.upto(oo.last_column) do |col|
-              tempArr << oo.cell(row,col)
+              temp_arr << oo.cell(row,col)
             end
-            feeder << tempArr
+            feeder << temp_arr
           end 
         end
         

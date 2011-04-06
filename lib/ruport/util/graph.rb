@@ -61,6 +61,6 @@ module Kernel
   end
 end    
 
-require "ruport/util/graph/scruffy"
-require "ruport/util/graph/amline"
-require "ruport/util/graph/gruff"
+require File.expand_path(File.dirname(__FILE__) + "/graph/scruffy")
+require File.expand_path(File.dirname(__FILE__) + "/graph/amline")
+require File.expand_path(File.dirname(__FILE__) + "/graph/gruff")

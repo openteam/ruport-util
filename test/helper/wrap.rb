@@ -85,7 +85,7 @@ class SpecWrap
     total_specs = total_failed + total_passed
 
     puts "#{total_specs} examples, #{total_failed} failures"
-    puts
+    puts ""
 
     if total_failed.nonzero?
       failed = @done.select{|d| d.failed.nonzero? or d.passed.zero?}.map{|f| f.name.red }
