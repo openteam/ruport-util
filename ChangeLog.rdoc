@@ -1,0 +1,4 @@
+=== 0.15.0 / 2011-04-05
+
+* Updated to work with Bundler
+* Fixed a require issue in query

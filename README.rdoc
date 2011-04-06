@@ -5,7 +5,9 @@
 
 == Description
 
-TODO: Description
+This is a fork of the {original}[ruport/ruport-util] with the main intent of
+getting things rolling with Ruby 1.9.2, Bundler, and the recently and now
+frequently evolving RubyGems.
 
 == Features
 

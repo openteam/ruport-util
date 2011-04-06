@@ -1,0 +1,20 @@
+name: ruport-util
+summary: "A set of tools and helper libs for Ruby Reports"
+license: MIT
+authors: Gregory Brown
+homepage: http://code.rubyreports.org
+has_yard: true
+email:  gregory.t.brown@gmail.com
+has_yard: true
+description:
+  ruport-util provides a number of utilities and helper libs
+  for Ruby Reports
+
+dependencies:
+  ruport: ~> 1.6.0
+  mailfactory: ">= 1.2.3"
+  rubyzip: ">= 0.9.1"
+
+development_dependencies:
+  bundler: ~> 1.0.0
+  yard: ~> 0.6.0

@@ -10,7 +10,7 @@
 #
 # This is free software distributed under the same terms as Ruby 1.8
 # See LICENSE and COPYING for details.
-require "generator"
+require File.expand_path(File.dirname(__FILE__) + "/generator")
 
 module Ruport
   
