@@ -2,10 +2,13 @@ PATH
   remote: .
   specs:
     ruport-util (0.15.0)
+      dbi
       gruff (~> 0.3.6)
       gruff (~> 0.3.6)
+      hpricot
       mailfactory (>= 1.2.3)
       mailfactory (>= 1.2.3)
+      roo
       rubyzip (>= 0.9.1)
       rubyzip (>= 0.9.1)
       ruport (>= 1.6.0)
@@ -13,10 +16,12 @@ PATH
       ruport-util
       scruffy (~> 0.2.6)
       scruffy (~> 0.2.6)
+      spreadsheet
 
 GEM
   remote: http://rubygems.org/
   specs:
+    builder (3.0.0)
     color (1.4.1)
     dbi (0.4.5)
       deprecated (= 2.0.1)
@@ -69,6 +74,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  builder (~> 3.0.0)
   bundler (~> 1.0.0)
   dbi
   gruff (~> 0.3.6)

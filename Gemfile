@@ -14,6 +14,9 @@ gem 'dbi'
 gem 'hpricot'
 # open_flash_chart
 
+# Fix for complaint from bundler
+gem 'builder', '~> 3.0.0'
+
 group :development do
   gem 'rake',   '~> 0.8.7'
   gem 'rspec',  '~> 2.5.0'
