@@ -14,6 +14,8 @@ dependencies:
   ruport: ~> 1.6.0
   mailfactory: ">= 1.2.3"
   rubyzip: ">= 0.9.1"
+  gruff: ~> 0.3.6
+  scruffy: ~> 0.2.6
 
 development_dependencies:
   bundler: ~> 1.0.0

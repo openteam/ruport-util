@@ -1,3 +1,19 @@
+PATH
+  remote: .
+  specs:
+    ruport-util (0.15.0)
+      gruff (~> 0.3.6)
+      gruff (~> 0.3.6)
+      mailfactory (>= 1.2.3)
+      mailfactory (>= 1.2.3)
+      rubyzip (>= 0.9.1)
+      rubyzip (>= 0.9.1)
+      ruport (>= 1.6.0)
+      ruport (~> 1.6.0)
+      ruport-util
+      scruffy (~> 0.2.6)
+      scruffy (~> 0.2.6)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -5,6 +21,7 @@ GEM
     diff-lcs (1.1.2)
     fastercsv (1.5.4)
     git (1.2.5)
+    gruff (0.3.6)
     hoe (2.9.4)
       rake (>= 0.8.7)
     jeweler (1.5.2)
@@ -34,6 +51,7 @@ GEM
     ruport (1.6.3)
       fastercsv
       pdf-writer (= 1.1.8)
+    scruffy (0.2.6)
     thor (0.14.6)
     transaction-simple (1.4.0)
       hoe (>= 1.1.7)
@@ -43,6 +61,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler (~> 1.0.0)
+  gruff (~> 0.3.6)
   jeweler (~> 1.5.0)
   mailfactory (>= 1.2.3)
   ore (~> 0.7.2)
@@ -51,4 +71,6 @@ DEPENDENCIES
   rspec (~> 2.5.0)
   rubyzip (>= 0.9.1)
   ruport (>= 1.6.0)
-  yard (~> 0.6.5)
+  ruport-util!
+  scruffy (~> 0.2.6)
+  yard (~> 0.6.0)
