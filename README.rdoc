@@ -1,0 +1,27 @@
+= turboladen-ruport-util
+
+* {Homepage}[http://github.com/turboladen/ruport-util]
+* {Documentation}[http://rubydoc.info/gems/turboladen-ruport-util/frames]
+
+== Description
+
+TODO: Description
+
+== Features
+
+== Examples
+
+  require 'ruport/util'
+
+== Requirements
+
+== Install
+
+  $ gem install turboladen-ruport-util
+
+== Copyright
+
+Copyright (c) 2011 sloveless
+
+See LICENSE for details.
+
