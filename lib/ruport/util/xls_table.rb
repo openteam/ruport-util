@@ -59,7 +59,7 @@ class Ruport::Data::Table
     #
     def parse_xls(xls_object, options={})
       get_table_from_xls(xls_object, options)
-    end      
+    end
 
     private
 
@@ -70,67 +70,64 @@ class Ruport::Data::Table
     end
 
     def get_table_from_xls(oo, options) #:nodoc:
-      options = {:has_column_names => true, 
-                 :select_sheet => oo.sheets.first,
-                 :start_row => 0}.merge(options)        
+      options          = { :has_column_names => true,
+          :select_sheet                      => oo.sheets.first,
+          :start_row                         => 0 }.merge(options)
       oo.default_sheet = options[:select_sheet]
-      
-      options[:start_row] = options[:start_row].to_i + 1 unless options[:start_row].nil?      
+
+      options[:start_row] = options[:start_row].to_i + 1 unless options[:start_row].nil?
       start_row = options[:start_row]
 
       raise 'start_row must be greater than or equal to zero' if options[:start_row].to_i < 0
-      
+
       last_row_index_zero = oo.last_row - 1
-      raise "start_row must be less than or equal to #{last_row_index_zero}" if !oo.last_row.nil? and 
-                                                                                (options[:start_row].to_i > oo.last_row)
-                                                                                
-      table = self.new(options) do |feeder|            
-        
+      raise "start_row must be less than or equal to #{last_row_index_zero}" if !oo.last_row.nil? and
+          (options[:start_row].to_i > oo.last_row)
+
+      table = self.new(options) do |feeder|
+
         if options[:has_column_names] == true
-          feeder.data.column_names = oo.row(start_row) 
-          start_row = start_row + 1
+          feeder.data.column_names = oo.row(start_row)
+          start_row                = start_row + 1
         end
-        
+
         unless oo.last_row.nil?
           start_row.upto(oo.last_row) do |row|
             temp_arr = []
             1.upto(oo.last_column) do |col|
-              temp_arr << oo.cell(row,col)
+              temp_arr << oo.cell(row, col)
             end
             feeder << temp_arr
-          end 
+          end
         end
-        
       end
 
-      return table     
+      return table
     end
-
   end
 
   extend FromXLS
-
 end
-    
+
 
 module Kernel
-  
+
   alias :RuportTableMethod2 :Table
-  
+
   # Updates the Ruport interface for creating Data::Tables with
   # the ability to pass in a XLS file or Roo Excel object.
   #
   #   t = Table("myspreadsheet.xls")
   #   t = Table("myspreadsheet.xls", :has_column_names => true)
-  def Table(*args,&block)
+  def Table(*args, &block)
     table=
-    case(args[0])
-    when /\.xls/
-      Ruport::Data::Table.load_xls(*args)
-    else
-      RuportTableMethod2(*args,&block)
-    end             
-    
+        case (args[0])
+        when /\.xls/
+          Ruport::Data::Table.load_xls(*args)
+        else
+          RuportTableMethod2(*args, &block)
+        end
+
     return table
   end
 end  
