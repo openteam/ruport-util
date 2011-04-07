@@ -4,17 +4,17 @@ require 'net/smtp'
 describe 'Mailer' do
   before :all do
     @default_opts = {
-      :user     => "inky",
-      :host     => "mail.example.com", 
-      :address  => "sue@example.com", 
-      :password => "chunky"
+        :user     => "inky",
+        :host     => "mail.example.com",
+        :address  => "sue@example.com",
+        :password => "chunky"
     }
 
     @other_opts = {
-      :user     => "blinky",
-      :host     => "moremail.example.com",
-      :address  => "clyde@example.com",
-      :password => "bacon"
+        :user     => "blinky",
+        :host     => "moremail.example.com",
+        :address  => "clyde@example.com",
+        :password => "bacon"
     }
 
     @mailer = Ruport::Mailer
@@ -23,23 +23,23 @@ describe 'Mailer' do
     @mailer.add_mailer :other, @other_opts
 
     @default_mailer = @mailer.new :default
-    @other_mailer = @mailer.new :other
+    @other_mailer   = @mailer.new :other
   end
 
   before :each do
-    @mail_fields = { :to      => 'clyde@example.com',
-                     :from    => 'sue@example.com',
-                     :subject => 'Hello',
-                     :text    => 'This is a spec' }
+    @mail_fields = { :to => 'clyde@example.com',
+        :from            => 'sue@example.com',
+        :subject         => 'Hello',
+        :text            => 'This is a spec' }
   end
 
   def values_for(mailer, *keys)
-    keys = keys.flatten.map{|k| k.to_s}
-    keys.map{|k| mailer.instance_variable_get("@#{k}") }
+    keys = keys.flatten.map { |k| k.to_s }
+    keys.map { |k| mailer.instance_variable_get("@#{k}") }
   end
 
   def check(mailer, expected)
-    keys = [:host, :address, :user, :password]
+    keys   = [:host, :address, :user, :password]
     values = values_for(mailer, *keys)
     values.should == expected.values_at(*keys)
   end
@@ -56,17 +56,17 @@ describe 'Mailer' do
     @smtp = mock('SMTP')
 
     Net::SMTP.should_receive(:start).
-      with(*values).
-      exactly(count).times.
-      and_yield(@smtp)
+        with(*values).
+        exactly(count).times.
+        and_yield(@smtp)
     @smtp.should_receive(:send_message).
-      with( an_instance_of(String), 
-            an_instance_of(String), 
-            an_instance_of(String) ).any_number_of_times.
-      and_return('250 ok')
+        with(an_instance_of(String),
+        an_instance_of(String),
+        an_instance_of(String)).any_number_of_times.
+        and_return('250 ok')
     @smtp.should_receive(:send_message).
-      with(an_instance_of(String),an_instance_of(String), nil).any_number_of_times.
-      and_raise(Net::SMTPSyntaxError)
+        with(an_instance_of(String), an_instance_of(String), nil).any_number_of_times.
+        and_raise(Net::SMTPSyntaxError)
   end
 
   it 'should have default mailer' do
@@ -84,18 +84,18 @@ describe 'Mailer' do
   it 'should raise if no default mailer is set' do
     default = @mailer.mailers.delete :default
 
-    lambda{ @mailer.new }.
-      should raise_error(RuntimeError, 'you need to specify a mailer to use')
+    lambda { @mailer.new }.
+        should raise_error(RuntimeError, 'you need to specify a mailer to use')
 
     @mailer.mailers[:default] = default
   end
 
   it 'should raise if configuration is invalid' do
-    lambda{ @mailer.add_mailer :bar, :user => :foo, :address => 'foo@bar.com' }.
-      should raise_error(Ruport::Mailer::InvalidMailerConfigurationError)
+    lambda { @mailer.add_mailer :bar, :user => :foo, :address => 'foo@bar.com' }.
+        should raise_error(Ruport::Mailer::InvalidMailerConfigurationError)
 
-    lambda{ @mailer.add_mailer :bar, :host => 'localhost' }.
-      should_not raise_error
+    lambda { @mailer.add_mailer :bar, :host => 'localhost' }.
+        should_not raise_error
   end
 
   it 'should send emails with default' do
@@ -112,8 +112,8 @@ describe 'Mailer' do
     mock_mailer 1
     hash = @mail_fields.dup
     hash.delete :to
-    lambda{ @default_mailer.deliver(hash) }.
-      should raise_error(Net::SMTPSyntaxError)
+    lambda { @default_mailer.deliver(hash) }.
+        should raise_error(Net::SMTPSyntaxError)
   end
 
   it 'should send mail with HTML' do
@@ -133,13 +133,13 @@ describe 'Mailer' do
   it 'should have information about the mail' do
     dfm = @default_mailer
 
-    { :to      => ['foo@bar.com'],
-      :from    => ['foo@bar.com'],
-      :subject => ['RuportDay!']
+    { :to        => ['foo@bar.com'],
+        :from    => ['foo@bar.com'],
+        :subject => ['RuportDay!']
     }.each do |meth, value|
       assign_meth = "#{meth}="
 
-      dfm.instance_eval{ @mail.send(assign_meth, value) }
+      dfm.instance_eval { @mail.send(assign_meth, value) }
       dfm.send(meth).should == value
 
       dfm.send(assign_meth, value)
@@ -157,9 +157,9 @@ describe 'Mailer' do
   it 'should send reports with default mailer' do
     report = Ruport::Report.new
     mock_report_mailer
-    report.send_to(@other_opts[:address]){|mail|
+    report.send_to(@other_opts[:address]) { |mail|
       mail.subject = 'Test Report'
-      mail.text = 'Test'
+      mail.text    = 'Test'
     }.should == '250 ok'
   end
 end

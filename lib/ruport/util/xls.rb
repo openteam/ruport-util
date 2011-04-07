@@ -42,14 +42,14 @@ module Ruport
 
     def build_table_body
       data.each do |r|
-          table_row { build_cells(r) }
+        table_row { build_cells(r) }
       end
     end
 
     def build_row
-      table_row{ build_cells(data.to_a) }
+      table_row { build_cells(data.to_a) }
     end
-    
+
     def table_row
       yield
       @xls_row += 1
@@ -70,24 +70,23 @@ module Ruport
     def finalize_table
       @workbook.close
       options.io =
-        if options.tempfile
-          @tempfile
-        else
-          File.read(@tempfile.path)
-        end
+          if options.tempfile
+            @tempfile
+          else
+            File.read(@tempfile.path)
+          end
     end
-  end  
-  
+  end
+
   # Excel 2007 OpenXML
   class Formatter::XLSX < Formatter
     BLANK_XLSX = File.join(Ruport::Util::BASEDIR, 'example', 'data', 'blank.xlsx')
-    renders :xlsx, :for => [ Controller::Row, Controller::Table]
+    renders :xlsx, :for => [Controller::Row, Controller::Table]
 
     def initialize
     end
-    
- 
-   
+
+
     def prepare_table
       @xls_row = 0
       output << %{<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -117,12 +116,12 @@ module Ruport
 
     def build_table_body
       data.each do |r|
-          table_row { build_cells(r) }
+        table_row { build_cells(r) }
       end
     end
 
     def build_row
-      table_row{ build_cells(data.to_a) }
+      table_row { build_cells(data.to_a) }
     end
 
     def table_row
@@ -148,19 +147,19 @@ module Ruport
     <v>#{id}</v>
    </c>}
         col += 1
-      end     
+      end
     end
 
     def build_strings_file
       out = ''
       out << %{<sst xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" uniqueCount="#{@strings.length}">\n}
-      @strings.each {|val|
-        out << %{  <si><t>#{val}</t></si>\n} 
+      @strings.each { |val|
+        out << %{  <si><t>#{val}</t></si>\n}
       }
       out << %{</sst>\n}
       out
     end
-    
+
     def finalize_table
       output << %{</sheetData>
  <sheetProtection sheet="false" objects="false" scenarios="false" formatCells="false" formatColumns="false" formatRows="false" insertColumns="false" insertRows="false" insertHyperlinks="false" deleteColumns="false" deleteRows="false" selectLockedCells="false" sort="false" autoFilter="false" pivotTables="false" selectUnlockedCells="false"/>
@@ -181,8 +180,8 @@ module Ruport
 
       @tempfile = Tempfile.new('output.xlsx')
 
-      File.open(BLANK_XLSX) { |bo| 
-        @tempfile.print(bo.read(1024)) until bo.eof? 
+      File.open(BLANK_XLSX) { |bo|
+        @tempfile.print(bo.read(1024)) until bo.eof?
       }
       @tempfile.close
       zip = Zip::ZipFile.open(@tempfile.path)
@@ -209,20 +208,20 @@ module Ruport
       end
       zip.close
       options.io =
-        if options.tempfile
-          @tempfile
-        else
-          File.read(@tempfile.path)
-        end
+          if options.tempfile
+            @tempfile
+          else
+            File.read(@tempfile.path)
+          end
     end
   end
-  
+
   # Excel 2003 XML
   class Formatter::XLSXML < Formatter
-    renders :xlsxml, :for => [ Controller::Row, Controller::Table]
-   
+    renders :xlsxml, :for => [Controller::Row, Controller::Table]
+
     def prepare_table
-     output << %{<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?>
+      output << %{<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?>
     <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
           xmlns:o="urn:schemas-microsoft-com:office:office"
           xmlns:x="urn:schemas-microsoft-com:office:excel"
@@ -254,14 +253,14 @@ module Ruport
 
     def build_table_body
       data.each do |r|
-          table_row { build_cells(r) }
+        table_row { build_cells(r) }
       end
     end
 
     def build_row
-      table_row{ build_cells(data.to_a) }
+      table_row { build_cells(data.to_a) }
     end
-    
+
     def table_row
       output << %{        <Row>\n}
       yield
@@ -290,11 +289,11 @@ module Ruport
       @tempfile.print(output)
       @tempfile.close
       options.io =
-        if options.tempfile
-          @tempfile
-        else
-          File.read(@tempfile.path)
-        end
+          if options.tempfile
+            @tempfile
+          else
+            File.read(@tempfile.path)
+          end
     end
 
   end
