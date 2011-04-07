@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby -w 
-require 'test/helper'    
+require 'spec/helper'
 testcase_requires 'dbi'
 
 $VERBOSE = nil
@@ -9,7 +9,7 @@ describe "A Query" do
    before :each do
      @sources = {
        :default => {
-         :dsn => 'ruport:test',  :user => 'greg',   :password => 'apple' },
+         :dsn => 'ruport:spec',  :user => 'greg',   :password => 'apple' },
        :alternative => {
          :dsn => "ruport:test2", :user => "sandal", :password => "harmonix" },
      }
@@ -188,18 +188,18 @@ describe "A Query" do
 
 
       it "should be able to set new defaults" do
-        Ruport::Query.add_source :default, :dsn      => "dbi:mysql:test",
+        Ruport::Query.add_source :default, :dsn      => "dbi:mysql:spec",
                                            :user     => "root",
                                            :password => ""
-        Ruport::Query.default_source.dsn.should == "dbi:mysql:test"
+        Ruport::Query.default_source.dsn.should == "dbi:mysql:spec"
         Ruport::Query.default_source.user.should == "root" 
         Ruport::Query.default_source.password.should == "" 
       end
 
       it "should allow setting multiple sources" do
-        Ruport::Query.add_source :foo, :dsn => "dbi:mysql:test"
+        Ruport::Query.add_source :foo, :dsn => "dbi:mysql:spec"
         Ruport::Query.add_source :bar, :dsn => "dbi:mysql:test2"
-        Ruport::Query.sources[:foo].dsn.should == "dbi:mysql:test"  
+        Ruport::Query.sources[:foo].dsn.should == "dbi:mysql:spec"
         Ruport::Query.sources[:bar].dsn.should == "dbi:mysql:test2" 
       end
 

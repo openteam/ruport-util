@@ -1,4 +1,4 @@
-require 'test/helper'       
+require 'spec/helper'
 require 'ruport/util/graph/amline'    
 Ruport.quiet { testcase_requires 'hpricot' }
 

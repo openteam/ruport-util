@@ -1,4 +1,4 @@
-require 'test/helper'
+require 'spec/helper'
 require 'net/smtp'
 
 class SampleReport < Ruport::Report

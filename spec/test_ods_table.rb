@@ -1,13 +1,13 @@
 # Copyright (C) 2007, Wes Hays
 # All Rights Reserved.
 
-require 'test/helper'
+require 'spec/helper'
 testcase_requires 'roo'
 
 describe 'Ruport::Data::TableFromODS' do
   before(:each) do
-    @ods_file = 'test/samples/people.ods'
-    @csv_file = 'test/samples/data.csv'
+    @ods_file = 'spec/samples/people.ods'
+    @csv_file = 'spec/samples/data.csv'
     
     @ods_file_column_names = %w(Name Age DOB)
     @rows = [ ['Andy',    27.0, Date.parse('01/20/1980')], 
@@ -216,4 +216,3 @@ end
 
     
     
-  

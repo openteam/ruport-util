@@ -1,4 +1,4 @@
-require 'test/helper'
+require 'spec/helper'
 require 'net/smtp'
 
 describe 'Mailer' do
@@ -30,7 +30,7 @@ describe 'Mailer' do
     @mail_fields = { :to      => 'clyde@example.com',
                      :from    => 'sue@example.com',
                      :subject => 'Hello',
-                     :text    => 'This is a test' }
+                     :text    => 'This is a spec' }
   end
 
   def values_for(mailer, *keys)
@@ -120,13 +120,13 @@ describe 'Mailer' do
     mock_mailer 1
     hash = @mail_fields.dup
     hash.delete(:text)
-    hash[:html] = '<p>This is a test.</p>'
+    hash[:html] = '<p>This is a spec.</p>'
     @default_mailer.deliver(hash).should == '250 ok'
   end
 
   it 'should send mail with attachment' do
     mock_mailer 1
-    @default_mailer.attach 'test/samples/data.csv'
+    @default_mailer.attach 'spec/samples/data.csv'
     @default_mailer.deliver(@mail_fields).should == '250 ok'
   end
 

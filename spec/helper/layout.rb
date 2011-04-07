@@ -1,4 +1,4 @@
-require 'test/helper/wrap'
+require 'spec/helper/wrap'
 
 class SpecLayout
   attr_accessor :base, :layout, :files

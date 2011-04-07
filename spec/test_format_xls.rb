@@ -1,4 +1,4 @@
-require 'test/helper'
+require 'spec/helper'
 require 'rexml/document'
 testcase_requires 'hpricot'  
 testcase_requires 'spreadsheet/excel'

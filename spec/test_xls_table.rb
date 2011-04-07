@@ -1,16 +1,16 @@
 # Copyright (C) 2008, Wes Hays
 # All Rights Reserved.
 
-require 'test/helper'
+require 'spec/helper'
 testcase_requires 'roo'
 
 describe 'Ruport::Data::TableFromXLS' do
   before(:each) do
-    @xls_file = 'test/samples/people.xls'
-    @csv_file = 'test/samples/data.csv'
+    @xls_file = 'spec/samples/people.xls'
+    @csv_file = 'spec/samples/data.csv'
     
     @xls_file_column_names = %w(Name Age DOB)
-    # This test will pass once Spreadsheet and Roo support
+    # This spec will pass once Spreadsheet and Roo support
     # formulas in an excel file.
     # @rows = [ ['Andy',    27.0, Date.parse('01/20/1980')], 
     #           ['Bob',     26.0, Date.parse('02/11/1981')],
@@ -25,7 +25,7 @@ describe 'Ruport::Data::TableFromXLS' do
        
        
     @xls_file_column_names2 = %w(Name Age Pet_Type)
-    # This test will pass once Spreadsheet and Roo support
+    # This spec will pass once Spreadsheet and Roo support
     # formulas in an excel file.    
     # @rows2 = [ ['Tigger', 3.0,  'Cat'], 
     #            ['Chai',   4.0,  'Dog'],
