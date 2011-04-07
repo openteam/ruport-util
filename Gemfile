@@ -17,6 +17,10 @@ gem 'hpricot'
 # Fix for complaint from bundler
 gem 'builder', '~> 3.0.0'
 
+# Fix for complaint from roo
+gem 'nokogiri', '~> 1.4.4'
+gem 'google-spreadsheet-ruby', '~> 0.1.2', :require => 'google_spreadsheet'
+
 group :development do
   gem 'rake',   '~> 0.8.7'
   gem 'rspec',  '~> 2.5.0'
