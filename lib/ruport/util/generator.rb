@@ -79,7 +79,7 @@ module Ruport
   def self.build_directory_structure
     mkdir project        
     puts "creating directories.."
-    %w[ test config output data data/models lib lib/reports 
+    %w[ test config output data data/models lib lib/reports
         lib/controllers sql util ].each do |d|
       m="#{project}/#{d}" 
       puts "  #{m}"
@@ -198,7 +198,7 @@ EOR
   puts "reports file: lib/reports/#{ARGV[1]}.rb"
   puts "test file: test/test_#{ARGV[1]}.rb"
   puts "class name: #{class_name}" 
-  File.open("test/test_#{ARGV[1]}.rb","w") { |f| f << TEST }  
+  File.open("test/test_#{ARGV[1]}.rb","w") { |f| f << TEST }
 
 elsif ARGV[0].eql? "controller"
 
@@ -240,7 +240,7 @@ EOR
   puts "test file: test/test_#{ARGV[1]}.rb"
 
   puts "class name: #{class_name}"
-  File.open("test/test_#{ARGV[1]}.rb","w") { |f| f << TEST } 
+  File.open("test/test_#{ARGV[1]}.rb","w") { |f| f << TEST }
 elsif ARGV[0].eql? "model"
   if File.exist?("data/models/#{ARGV[1]}.rb")
     raise "Model #{class_name} exists!"

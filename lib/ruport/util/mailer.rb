@@ -59,9 +59,9 @@ module Ruport
       #                                 pass another mailer to use here.
       #                               
       # Example (creating a mailer config):
-      #   add_mailer :alternate, :host => "mail.test.com", 
+      #   add_mailer :alternate, :host => "mail.test.com",
       #                          :address => "test@test.com",
-      #                          :user => "test", 
+      #                          :user => "test",
       #                          :password => "blinky"
       #                          :auth_type => :cram_md5
       #

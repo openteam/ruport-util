@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     ruport-util (0.15.0)
+      builder (~> 3.0.0)
       dbi
       gruff (~> 0.3.6)
       gruff (~> 0.3.6)
