@@ -1,4 +1,4 @@
-require 'spec/helper'
+require 'spec_helper'
 
 Ruport.quiet { testcase_requires 'open_flash_chart' }
 

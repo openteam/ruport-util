@@ -1,5 +1,6 @@
-#!/usr/bin/env ruby -w 
-require 'spec/helper'
+#!/usr/bin/env ruby -w
+
+require 'spec_helper'
 testcase_requires 'dbi'
 
 $VERBOSE = nil

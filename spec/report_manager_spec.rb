@@ -1,4 +1,4 @@
-require 'spec/helper'
+require 'spec_helper'
    
 class MikeSample < Ruport::Report; def generate; "Hello Mike"; end; end
 class JoeSample < Ruport::Report; def generate; "Hello Joe"; end; end

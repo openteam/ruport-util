@@ -9,10 +9,10 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.3.6") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gregory Brown"]
-  s.date = %q{2011-04-05}
+  s.date = %q{2011-04-06}
   s.description = %q{ruport-util provides a number of utilities and helper libs for Ruby Reports}
   s.email = ["gregory.t.brown@gmail.com"]
-  s.executables = ["csv2ods"]
+  s.executables = ["csv2ods", "rope"]
   s.extra_rdoc_files = [
     "ChangeLog.rdoc",
     "LICENSE",
@@ -66,25 +66,25 @@ Gem::Specification.new do |s|
     "lib/ruport/util/xls.rb",
     "lib/ruport/util/xls_table.rb",
     "ruport-util.gemspec",
-    "test/helper.rb",
-    "test/helper/layout.rb",
-    "test/helper/wrap.rb",
-    "test/samples/data.csv",
-    "test/samples/foo.rtxt",
-    "test/samples/people.ods",
-    "test/samples/people.xls",
-    "test/test_format_ods.rb",
-    "test/test_format_xls.rb",
-    "test/test_graph_ofc.rb",
-    "test/test_graph_renderer.rb",
-    "test/test_hpricot_traverser.rb",
-    "test/test_invoice.rb",
-    "test/test_mailer.rb",
-    "test/test_ods_table.rb",
-    "test/test_query.rb",
-    "test/test_report.rb",
-    "test/test_report_manager.rb",
-    "test/test_xls_table.rb"
+    "spec/format_ods_spec.rb",
+    "spec/format_xls_spec.rb",
+    "spec/graph_ofc_spec.rb",
+    "spec/graph_renderer_spec.rb",
+    "spec/helper/layout.rb",
+    "spec/helper/wrap.rb",
+    "spec/hpricot_traverser_spec.rb",
+    "spec/invoice_spec.rb",
+    "spec/mailer_spec.rb",
+    "spec/ods_table_spec.rb",
+    "spec/query_spec.rb",
+    "spec/report_manager_spec.rb",
+    "spec/report_spec.rb",
+    "spec/samples/data.csv",
+    "spec/samples/foo.rtxt",
+    "spec/samples/people.ods",
+    "spec/samples/people.xls",
+    "spec/spec_helper.rb",
+    "spec/xls_table_spec.rb"
   ]
   s.homepage = %q{http://code.rubyreports.org}
   s.licenses = ["MIT"]
@@ -93,21 +93,18 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.7.2}
   s.summary = %q{A set of tools and helper libs for Ruby Reports}
   s.test_files = [
-    "test/helper.rb",
-    "test/helper/layout.rb",
-    "test/helper/wrap.rb",
-    "test/test_format_ods.rb",
-    "test/test_format_xls.rb",
-    "test/test_graph_ofc.rb",
-    "test/test_graph_renderer.rb",
-    "test/test_hpricot_traverser.rb",
-    "test/test_invoice.rb",
-    "test/test_mailer.rb",
-    "test/test_ods_table.rb",
-    "test/test_query.rb",
-    "test/test_report.rb",
-    "test/test_report_manager.rb",
-    "test/test_xls_table.rb"
+    "spec/format_ods_spec.rb",
+    "spec/format_xls_spec.rb",
+    "spec/graph_ofc_spec.rb",
+    "spec/graph_renderer_spec.rb",
+    "spec/hpricot_traverser_spec.rb",
+    "spec/invoice_spec.rb",
+    "spec/mailer_spec.rb",
+    "spec/ods_table_spec.rb",
+    "spec/query_spec.rb",
+    "spec/report_manager_spec.rb",
+    "spec/report_spec.rb",
+    "spec/xls_table_spec.rb"
   ]
 
   if s.respond_to? :specification_version then
@@ -138,6 +135,14 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<yard>, ["~> 0.6.0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<yard>, ["~> 0.6.0"])
+      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
+      s.add_development_dependency(%q<yard>, ["~> 0.6.0"])
+      s.add_development_dependency(%q<rake>, ["~> 0.8.7"])
+      s.add_development_dependency(%q<rspec>, ["~> 2.5.0"])
+      s.add_development_dependency(%q<yard>, ["~> 0.6.0"])
+      s.add_development_dependency(%q<ore>, ["~> 0.7.2"])
+      s.add_development_dependency(%q<ore-core>, ["~> 0.1.4"])
+      s.add_development_dependency(%q<jeweler>, ["~> 1.5.0"])
       s.add_development_dependency(%q<rake>, ["~> 0.8.7"])
       s.add_development_dependency(%q<rspec>, ["~> 2.5.0"])
       s.add_development_dependency(%q<yard>, ["~> 0.6.0"])
@@ -187,6 +192,14 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<yard>, ["~> 0.6.0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<yard>, ["~> 0.6.0"])
+      s.add_dependency(%q<bundler>, ["~> 1.0.0"])
+      s.add_dependency(%q<yard>, ["~> 0.6.0"])
+      s.add_dependency(%q<rake>, ["~> 0.8.7"])
+      s.add_dependency(%q<rspec>, ["~> 2.5.0"])
+      s.add_dependency(%q<yard>, ["~> 0.6.0"])
+      s.add_dependency(%q<ore>, ["~> 0.7.2"])
+      s.add_dependency(%q<ore-core>, ["~> 0.1.4"])
+      s.add_dependency(%q<jeweler>, ["~> 1.5.0"])
       s.add_dependency(%q<rake>, ["~> 0.8.7"])
       s.add_dependency(%q<rspec>, ["~> 2.5.0"])
       s.add_dependency(%q<yard>, ["~> 0.6.0"])
@@ -237,6 +250,14 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<yard>, ["~> 0.6.0"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<yard>, ["~> 0.6.0"])
+    s.add_dependency(%q<bundler>, ["~> 1.0.0"])
+    s.add_dependency(%q<yard>, ["~> 0.6.0"])
+    s.add_dependency(%q<rake>, ["~> 0.8.7"])
+    s.add_dependency(%q<rspec>, ["~> 2.5.0"])
+    s.add_dependency(%q<yard>, ["~> 0.6.0"])
+    s.add_dependency(%q<ore>, ["~> 0.7.2"])
+    s.add_dependency(%q<ore-core>, ["~> 0.1.4"])
+    s.add_dependency(%q<jeweler>, ["~> 1.5.0"])
     s.add_dependency(%q<rake>, ["~> 0.8.7"])
     s.add_dependency(%q<rspec>, ["~> 2.5.0"])
     s.add_dependency(%q<yard>, ["~> 0.6.0"])

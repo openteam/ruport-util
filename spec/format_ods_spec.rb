@@ -1,5 +1,4 @@
-#require 'spec/helper'
-require './helper'
+require 'spec_helper'
 
 testcase_requires 'hpricot'
 
