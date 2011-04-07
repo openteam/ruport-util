@@ -11,7 +11,6 @@ class Array
   end
 end
 
-#require "spec"
 require 'ruport'
 this = File.dirname(__FILE__)
 lib = File.expand_path(File.join(this, '..', 'lib'))
