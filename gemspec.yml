@@ -20,5 +20,5 @@ dependencies:
 development_dependencies:
   bundler: ~> 1.0.0
   yard: ~> 0.6.0
-  rspec: ~> 2.5.1
-  ore: ~> 0.1.5
+  rspec: ~> 2.5.0
+  ore: ~> 0.7.2
