@@ -1,3 +1,24 @@
+PATH
+  remote: .
+  specs:
+    ruport-util (0.15.0)
+      dbi
+      google-spreadsheet-ruby (~> 0.1.2)
+      gruff (~> 0.3.6)
+      gruff (~> 0.3.6)
+      hpricot
+      mailfactory (>= 1.2.3)
+      mailfactory (>= 1.2.3)
+      nokogiri (~> 1.4.4)
+      roo
+      rubyzip (>= 0.9.1)
+      rubyzip (>= 0.9.1)
+      ruport (>= 1.6.0)
+      ruport (~> 1.6.0)
+      scruffy (~> 0.2.6)
+      scruffy (~> 0.2.6)
+      spreadsheet
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -58,6 +79,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler (~> 1.0.0)
   dbi
   google-spreadsheet-ruby (~> 0.1.2)
   gruff (~> 0.3.6)
@@ -72,6 +94,7 @@ DEPENDENCIES
   rspec (~> 2.5.0)
   rubyzip (>= 0.9.1)
   ruport (>= 1.6.0)
+  ruport-util!
   scruffy (~> 0.2.6)
   spreadsheet
   yard (~> 0.6.0)
