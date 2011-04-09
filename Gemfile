@@ -1,6 +1,6 @@
 source :rubygems
 
-gemspec
+#gemspec
 gem 'ruport', '>= 1.6.0'
 gem 'mailfactory', '>=1.2.3'
 gem 'rubyzip', '>=0.9.1'
