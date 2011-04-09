@@ -1,6 +1,6 @@
 source :rubygems
 
-gemspec
+#gemspec
 gem 'ruport', '>= 1.6.0'
 gem 'mailfactory', '>=1.2.3'
 gem 'rubyzip', '>=0.9.1'
@@ -15,7 +15,7 @@ gem 'hpricot'
 # open_flash_chart
 
 # Fix for complaint from bundler
-gem 'builder', '~> 3.0.0'
+#gem 'builder', '~> 3.0.0'
 
 # Fix for complaint from roo
 gem 'nokogiri', '~> 1.4.4'
