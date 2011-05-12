@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'cgi'
 require 'tmpdir'
 
@@ -59,15 +60,15 @@ module Ruport
 </office:document-content>}
 
       @tempfile = Tempfile.new('output.ods')
-
-      File.open(BLANK_ODS){|bo| @tempfile.print(bo.read(1024)) until bo.eof? }
       @tempfile.close
 
-      zip = Zip::ZipFile.open(@tempfile.path)
-      zip.get_output_stream('content.xml') do |cxml|
-        cxml.write(output)
+      FileUtils.copy_file BLANK_ODS, @tempfile.path
+
+      Zip::ZipFile.open(@tempfile.path) do | zip |
+        zip.get_output_stream('content.xml') do |content_xml|
+          content_xml.write(output)
+        end
       end
-      zip.close
 
       options.io =
         if options.tempfile
